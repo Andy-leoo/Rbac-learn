@@ -14,4 +14,4 @@ shiro-base
 permission-base
     
     这里脱离框架 使用RBAC思想来手动实现 权限。
-    permission-basc 下的 permission.sql 进行查看sql脚本
+    根目录下的 permission.sql 进行查看sql脚本
