@@ -10,6 +10,7 @@
 
     <!--修改打包方式-->
     <packaging>pom</packaging>
+
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
@@ -102,6 +103,8 @@
 
     <modules>
         <module>security-base</module>
+        <module>shiro-base</module>
+        <module>permission-base</module>
     </modules>
 
     <build>
