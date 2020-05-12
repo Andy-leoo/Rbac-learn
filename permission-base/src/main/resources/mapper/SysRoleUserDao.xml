@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rbac.learn.dao.SysRoleUserDao">
+
+    <resultMap type="com.rbac.learn.entity.SysRoleUser" id="SysRoleUserMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="roleId" column="role_id" jdbcType="INTEGER"/>
+        <result property="userId" column="user_id" jdbcType="INTEGER"/>
+        <result property="operator" column="operator" jdbcType="VARCHAR"/>
+        <result property="operateTime" column="operate_time" jdbcType="TIMESTAMP"/>
+        <result property="operateIp" column="operate_ip" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="SysRoleUserMap">
+        select
+          id, role_id, user_id, operator, operate_time, operate_ip
+        from rbac_learn.sys_role_user
+        where id = #{id}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="SysRoleUserMap">
+        select
+          id, role_id, user_id, operator, operate_time, operate_ip
+        from rbac_learn.sys_role_user
+        limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="SysRoleUserMap">
+        select
+          id, role_id, user_id, operator, operate_time, operate_ip
+        from rbac_learn.sys_role_user
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="roleId != null">
+                and role_id = #{roleId}
+            </if>
+            <if test="userId != null">
+                and user_id = #{userId}
+            </if>
+            <if test="operator != null and operator != ''">
+                and operator = #{operator}
+            </if>
+            <if test="operateTime != null">
+                and operate_time = #{operateTime}
+            </if>
+            <if test="operateIp != null and operateIp != ''">
+                and operate_ip = #{operateIp}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into rbac_learn.sys_role_user(role_id, user_id, operator, operate_time, operate_ip)
+        values (#{roleId}, #{userId}, #{operator}, #{operateTime}, #{operateIp})
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update rbac_learn.sys_role_user
+        <set>
+            <if test="roleId != null">
+                role_id = #{roleId},
+            </if>
+            <if test="userId != null">
+                user_id = #{userId},
+            </if>
+            <if test="operator != null and operator != ''">
+                operator = #{operator},
+            </if>
+            <if test="operateTime != null">
+                operate_time = #{operateTime},
+            </if>
+            <if test="operateIp != null and operateIp != ''">
+                operate_ip = #{operateIp},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from rbac_learn.sys_role_user where id = #{id}
+    </delete>
+
+</mapper>
