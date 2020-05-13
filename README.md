@@ -15,3 +15,12 @@ permission-base
     
     这里脱离框架 使用RBAC思想来手动实现 权限。
     根目录下的 permission.sql 进行查看sql脚本
+    
+    5-12 
+    使用IDEA 自带生成代码 Easy Code 生成基本代码
+    大家想了解使用 可移步 CSDN :https://blog.csdn.net/weixin_37301906/article/details/106069960
+    
+    5-13 
+    整合 Mybatis 
+    
+    

@@ -1,6 +1,7 @@
 package com.rbac.learn.dao;
 
 import com.rbac.learn.entity.SysDept;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
@@ -10,6 +11,7 @@ import java.util.List;
  * @author makejava
  * @since 2020-05-12 10:30:05
  */
+@Mapper
 public interface SysDeptDao {
 
     /**

@@ -1,7 +1,8 @@
 package com.rbac.learn.dao;
 
 import com.rbac.learn.entity.SysAcl;
-import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Mapper;
+
 import java.util.List;
 
 /**
@@ -10,6 +11,7 @@ import java.util.List;
  * @author makejava
  * @since 2020-05-12 10:29:12
  */
+@Mapper
 public interface SysAclDao {
 
     /**
@@ -27,7 +29,7 @@ public interface SysAclDao {
      * @param limit 查询条数
      * @return 对象列表
      */
-    List<SysAcl> queryAllByLimit(@Param("offset") int offset, @Param("limit") int limit);
+    List<SysAcl> queryAllByLimit(int offset, int limit);
 
 
     /**

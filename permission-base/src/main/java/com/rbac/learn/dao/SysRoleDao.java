@@ -1,6 +1,7 @@
 package com.rbac.learn.dao;
 
 import com.rbac.learn.entity.SysRole;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
@@ -10,6 +11,7 @@ import java.util.List;
  * @author makejava
  * @since 2020-05-12 10:30:33
  */
+@Mapper
 public interface SysRoleDao {
 
     /**
