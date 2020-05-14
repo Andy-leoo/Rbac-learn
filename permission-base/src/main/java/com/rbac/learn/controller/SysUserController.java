@@ -5,6 +5,7 @@ import com.rbac.learn.service.SysUserService;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * (SysUser)表控制层
@@ -13,7 +14,7 @@ import javax.annotation.Resource;
  * @since 2020-05-12 10:31:20
  */
 @RestController
-@RequestMapping("sysUser")
+@RequestMapping("/sysUser")
 public class SysUserController {
     /**
      * 服务对象
@@ -27,9 +28,13 @@ public class SysUserController {
      * @param id 主键
      * @return 单条数据
      */
-    @GetMapping("selectOne")
-    public SysUser selectOne(Integer id) {
+    @GetMapping("/selectOne/{id}")
+    public SysUser selectOne(@PathVariable(value = "id") Integer id) {
         return this.sysUserService.queryById(id);
     }
 
+    @RequestMapping(value = "/selectUserAll" ,method = RequestMethod.POST)
+    public String selectUserAll(){
+        return "/allUser";
+    }
 }
