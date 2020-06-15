@@ -30,7 +30,7 @@
         <commons-io.version>2.6</commons-io.version>
         <commons-codec.version>1.10</commons-codec.version>
         <javax.validation.version>1.1.0.Final</javax.validation.version>
-        <org.hibernate.version>5.2.4.Final</org.hibernate.version>
+        <org.hibernate.version>5.3.5.Final</org.hibernate.version>
         <!-- 定义版本号, 子模块直接引用-->
     </properties>
 
